@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Modifier Classes</title>
+    <title>Modifier Classe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body style="background: lightgray">
@@ -24,7 +24,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Nom de la Classe</label>
+                                <label class="font-weight-bold">nom</label>
                                 <input type="text" class="form-control @error('nomClasse') is-invalid @enderror" name="nomClasse" value="{{ old('nomClasse', $classe->nomClasse) }}" placeholder="nom">
 
                                 <!-- error message untuk title -->
@@ -36,7 +36,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="font-weight-bold">Nombre des Etudiants</label>
-                                <input type="text" class="form-control @error('nombreEtudiants') is-invalid @enderror" name="telephone" value="{{ old('nombreEtudiants', $classe->nombreEtudiants) }}" placeholder="nombreEtudiants">
+                                <input type="text" class="form-control @error('nombreEtudiants') is-invalid @enderror" name="nombreEtudiants" value="{{ old('nombreEtudiants', $classe->nombreEtudiants) }}" placeholder="nombreEtudiants">
 
                                 <!-- error message untuk title -->
                                 @error('nombreEtudiants')
@@ -45,6 +45,20 @@
                                 </div>
                                 @enderror
                             </div>
+
+
+ <div class="form-group" hidden >
+                                <label class="font-weight-bold">iiii</label>
+                                <input type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id', $classe->id) }}" placeholder="id">
+
+                                <!-- error message untuk title -->
+                                @error('id')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
 
 
 

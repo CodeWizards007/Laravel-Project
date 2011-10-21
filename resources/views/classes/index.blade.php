@@ -39,6 +39,9 @@
 
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Delete ?');" action="{{ route('classes.destroy', $classe->id) }}" method="POST">
+
+
+
                                             <a href="{{ route('classes.edit', $classe->id) }}" class="btn btn-sm btn-primary">MODIFIER</a>
 
                                             @csrf

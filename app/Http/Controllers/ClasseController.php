@@ -31,7 +31,8 @@ class ClasseController extends Controller
         public function show($id)
         {
             $classes = Etablissement::find($id)->classe;
-            return view('classes.index', compact('classes'));
+            $etab = Etablissement::find($id);
+            return view('classes.index', compact('classes'))->with('etab',$etab);
         }
 
     /**
@@ -81,72 +82,78 @@ class ClasseController extends Controller
     /**
      * edit
      *
-     * @param  mixed $classe
+     * @param  int  $id
      * @return void
      */
-    public function edit(Classe $classe)
+    public function edit(int  $id)
     {
+
+
+    $classe = Classe::find($id);
+
+
         return view('classes.edit', compact('classe'));
     }
 
     /**
-     * update
-     *
-     * @param  mixed $request
-     * @param  mixed $classe
-     * @return void
-     */
-    public function update(Request $request, Classe $classe)
-    {
-        //validate form
-        $this->validate($request, [
-            'image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'nomClasses'     => 'required|min:2',
-            'nombreEtudiants'   => $request->nombreEtudiants,
-                        'etablissement_id'   => $request->etablissement_id,
-        ]);
+         * update
+         *
+         * @param  mixed $request
+         * @param  mixed $classe
+         * @return void
+         */
+        public function update(Request $request, Classe $classe)
+        {
+            //validate form
+           $classroom=Classe::find($request['id']);
+            $this->validate($request, [
+                'image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'nomClasse'     => 'required|min:2',
+                'nombreEtudiants'   => 'required|min:4',
 
-        //check if image is uploaded
-        if ($request->hasFile('image')) {
-
-            //upload new image
-            $image = $request->file('image');
-            $image->storeAs('public/classes', $image->hashName());
-
-            //delete old image
-            Storage::delete('public/classes/'.$classe->image);
-
-            //update post with new image
-            $classe->update([
-                'image'     => $image->hashName(),
-                            'nomClasse'     => $request->nomClasse,
-                            'nombreEtudiants'   => $request->nombreEtudiants,
-                            'etablissement_id'   => $request->etablissement_id,
             ]);
 
-        } else {
+            //check if image is uploaded
+            if ($request->hasFile('image')) {
 
-            //update post without image
-            $classe->update([
-                'image'     => $image->hashName(),
-                            'nomClasse'     => $request->nomClasse,
-                            'nombreEtudiants'   => $request->nombreEtudiants,
-                            'etablissement_id'   => $request->etablissement_id,
-            ]);
+                //upload new image
+                $image = $request->file('image');
+                $image->storeAs('public/classes', $image->hashName());
+
+                //delete old image
+                Storage::delete('public/classes/'.$classe->image);
+
+                //update post with new image
+                $classroom->update([
+                    'image'     => $image->hashName(),
+                    'nomClasse'     => $request->nomClasse,
+                    'nombreEtudiants'   => $request->nombreEtudiants,
+
+                ]);
+
+            } else {
+
+                //update post without image
+                $classroom->update([
+                    'image'     => $image->hashName(),
+                    'nomClasse'     => $request->nomClasse,
+                    'nombreEtudiants'   => $request->nombreEtudiants,
+
+                ]);
+            }
+
+            //redirect to index
+            return redirect()->route('classes.index')->with(['success' => 'Modifier Avec Success!']);
         }
-
-        //redirect to index
-        return redirect()->route('classes.index')->with(['success' => 'Modifier Avec Success!']);
-    }
-
     /**
      * destroy
      *
-     * @param  mixed $classe
+     * @param  int $id
      * @return void
      */
-    public function destroy(Classe $classe)
+    public function destroy($id)
     {
+    $classe=Classe::find($id);
         //delete image
         Storage::delete('public/posts/'. $classe->image);
 
