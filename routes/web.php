@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReclamationController;
+use App\Http\Controllers\ClubController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +20,13 @@ Route::get('/', function () {
 });
 
 
+
 Route::resource('/etablissements', \App\Http\Controllers\EtablissementController::class);
+
+
+
+
+
+
+Route::resource("/reclamation", ReclamationController::class);
+Route::resource("/club", ClubController::class);
