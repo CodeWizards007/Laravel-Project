@@ -23,8 +23,9 @@ Route::resource("/cour",\App\Http\Controllers\CoursController::class);
 
 
 
-
+Route::resource('/classes', \App\Http\Controllers\ClasseController::class);
 Route::resource('/etablissements', \App\Http\Controllers\EtablissementController::class);
+
 
 
 

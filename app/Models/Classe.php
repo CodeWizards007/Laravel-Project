@@ -20,6 +20,7 @@ class Classe extends Model
     }
 
         protected $fillable = [
+            'image',
             'nomClasse',
              'nombreEtudiants',
              'etablissement_id',
