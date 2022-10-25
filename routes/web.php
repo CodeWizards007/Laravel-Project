@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ForumController;
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\ClubController;
 use \App\Http\Controllers\UserController;
@@ -30,3 +32,6 @@ Route::resource('/etablissements', \App\Http\Controllers\EtablissementController
 
 Route::resource("/reclamation", ReclamationController::class);
 Route::resource("/club", ClubController::class);
+
+Route::resource("/forum",ForumController ::class);
+Route::resource("/commentaire",CommentaireController ::class);

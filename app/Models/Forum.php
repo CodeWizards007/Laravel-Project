@@ -9,6 +9,15 @@ class Forum extends Model
 {
     use HasFactory;
 
+    protected $table = 'forums';
+    protected $primaryKey = 'id';
+    protected $fillable = [
+        'titre',
+        'contenue',
+        'user_id'
+    ];
+
+
     public function user()
     {
         return $this->belongsTo(User::class);

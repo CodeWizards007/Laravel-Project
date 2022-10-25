@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('nom_annexe')->nullable();
             $table->string('path_annexe')->nullable();
             $table->string('pourClasse');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nomClasse');
             $table->integer('nombreEtudiants');
-            $table->foreignId('etablissement_id')->constrained('etablissements');
+            $table->foreignId('etablissement_id')->constrained('etablissements')->onDelete('cascade');
             $table->timestamps();
         });
     }

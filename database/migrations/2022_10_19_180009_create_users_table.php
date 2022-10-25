@@ -23,8 +23,8 @@ return new class extends Migration
             $table->integer('telephone');
             $table->string('adresse');
             $table->string('role');
-            $table->foreignId('classe_id')->constrained('classes');
-            $table->foreignId('club_id')->constrained('clubs');
+            $table->foreignId('classe_id')->constrained('classes')->onDelete('cascade');
+            $table->foreignId('club_id')->constrained('clubs')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
