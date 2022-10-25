@@ -13,8 +13,9 @@
             <input type="text" name="titre" id="titre" value="{{$reclamations->titre}}" class="form-control"></br>
             <label>Contenue</label></br>
             <input type="text" name="contenue" id="contenue" value="{{$reclamations->contenue}}" class="form-control"></br>
-            <label>Status</label></br>
-            <input type="text" name="status" id="status" value="{{$reclamations->status}}" class="form-control"></br>
+            <input type="hidden" name="status" id="status" value="0" class="form-control"></br>
+            <label>User</label></br>
+            <input type="" name="user_id" id="user_id" value="{{$reclamations->user_id}}" class="form-control"></br>
             <input type="submit" value="Update" class="btn btn-success"></br>
         </form>
 
