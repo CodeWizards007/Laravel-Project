@@ -25,6 +25,5 @@ class Classe extends Model
              'nombreEtudiants',
              'etablissement_id',
         ];
-        protected $table='classes';
-        protected $primaryKey='id';
+
 }
