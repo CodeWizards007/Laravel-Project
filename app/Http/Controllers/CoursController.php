@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cour;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CoursController extends Controller
@@ -13,7 +15,8 @@ class CoursController extends Controller
      */
     public function index()
     {
-        //
+        $cours = Cour::all();
+        return view('cours.index')->with('cours', $cours);
     }
 
     /**
@@ -23,7 +26,8 @@ class CoursController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return view('cours.create')->with('users', $users);
     }
 
     /**
@@ -34,7 +38,8 @@ class CoursController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cour::create($request->all());
+        return redirect("cour")->with('success','cour created successfully.');
     }
 
     /**
@@ -45,7 +50,11 @@ class CoursController extends Controller
      */
     public function show($id)
     {
-        //
+        $cour = Cour::find($id);
+        $user = User::find($cour->user_id);
+        return view('cours.show')
+            ->with('cour', $cour)
+            ->with('course_user', $user);
     }
 
     /**
@@ -56,7 +65,13 @@ class CoursController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cour = Cour::find($id);
+        $user = User::find($cour->user_id);
+        $users = User::all();
+        return view('cours.edit')
+            ->with('cour', $cour)
+            ->with('users', $users)
+            ->with('course_user', $user);
     }
 
     /**
@@ -68,7 +83,10 @@ class CoursController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cour = Cour::find($id);
+        $input = $request->all();
+        $cour->update($input);
+        return redirect('cour')->with('flash_message', 'cour Updated!');
     }
 
     /**
@@ -79,6 +97,7 @@ class CoursController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cour::destroy($id);
+        return redirect('cour')->with('flash_message', 'cour Deleted!');
     }
 }
