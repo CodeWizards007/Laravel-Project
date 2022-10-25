@@ -8,7 +8,13 @@
         <form action="{{ url('club') }}" method="post">
             {!! csrf_field() !!}
             <label>nom club</label></br>
-            <input type="text" name="nomClub" id="nomClub" class="form-control"></br>
+            <input type="text" name="nomClub" id="nomClub" class="form-control @error('nomClub') is-invalid @enderror"></br>
+            @error('nomClub')
+            <div class="alert alert-danger mt-2">
+                {{ $message }}
+            </div>
+            @enderror
+
             <label>specialite</label></br>
             <select class="form-select mb-5" name="specialite">
                 <option value="TWIN">TWIN</option>
@@ -16,7 +22,6 @@
                 <option value="ArcTIC">ArcTIC</option>
                 <option value="NIDS">NIDS</option>
             </select>
-
             <input type="submit" value="Save" class="btn btn-success"></br>
         </form>
 

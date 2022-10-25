@@ -34,6 +34,11 @@ class ClubController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'nomClub'     => 'required|min:5',
+            'specialite'   => 'required|min:3',
+
+        ]);
         $input= $request->all();
         Club::create($input);
         return redirect('club')->with('flash_message', 'Club Addedd!');
@@ -72,6 +77,11 @@ class ClubController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'nomClub'     => 'required|min:5',
+            'specialite'   => 'required|min:3',
+
+        ]);
         $club = Club::find($id);
         $input = $request->all();
         $club->update($input);
