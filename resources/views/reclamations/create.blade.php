@@ -15,7 +15,7 @@
             </div>
             @enderror
             <label>contenue</label></br>
-            <input type="text" name="contenue" id="contenue" class="form-control @error('contenue') is-invalid @enderror"></br>
+            <textarea type="text" name="contenue" id="contenue" class="form-control @error('contenue') is-invalid @enderror"></textarea></br>
             @error('contenue')
             <div class="alert alert-danger mt-2">
                 {{ $message }}
