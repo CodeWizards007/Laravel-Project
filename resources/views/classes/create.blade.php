@@ -53,6 +53,7 @@
                                 @enderror
                             </div>
 <div class="form-group">
+<label class="font-weight-bold">Etablissement</label>
                             <select class="form-control" name="etablissement_id">
                             @foreach($etabs as $etab)
                             <option value="{{$etab['id']}}">{{$etab['nom']}}</option>
