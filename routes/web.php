@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\ClubController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,9 @@ Route::get('/', function () {
 
 Route::resource('/etablissements', \App\Http\Controllers\EtablissementController::class);
 
+Route::resource('/blogs', \App\Http\Controllers\BlogController::class);
 
-
+Route::resource('/evenements', \App\Http\Controllers\EvenementController::class);
 
 
 
