@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Etablissement;
+use App\Models\Classe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+
 
 class EtablissementController extends Controller
 {
@@ -18,8 +20,10 @@ class EtablissementController extends Controller
         //get etablissements
         $etablissements = Etablissement::latest()->paginate(5);
 
+        $classes=Classe::All();
+
         //render view with posts
-        return view('etablissements.index', compact('etablissements'));
+        return view('etablissements.index', compact('etablissements'))->with('classes',$classes);
     }
 
     /**

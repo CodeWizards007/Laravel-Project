@@ -48,7 +48,7 @@
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Delete ?');" action="{{ route('etablissements.destroy', $etablissement->id) }}" method="POST">
                                             <a href="{{ route('etablissements.edit', $etablissement->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-
+                                            <a href="{{ url('/classes/'.$etablissement->id) }}" class="btn btn-md btn-success mb-3">Voir Classes</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
