@@ -38,14 +38,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-      /*$validator  =  $request->validate([
-            'prenom' => 'required',
-            'email' => 'unique',
-            'password' => 'required',
-            'role' => 'required',
-            'classe_id' => 'required',
-            'club_id' => 'required',
-        ]);*/
+        $this->validate($request, [
+            //'image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'nom'     => 'required|min:5',
+            'prenom'   => 'required|min:5',
+            'email'   => 'required',
+            'telephone'   => 'required|min:8',
+            'adresse'   => 'min:4',
+            'classe_id'   => 'required|min:1',
+            'club_id'   => 'required|min:1',
+            'role' => 'required|min:1',
+            'password' => 'required|min:8',
+        ]);
         User::create($request->all());
 
         return redirect("user")->with('success','User created successfully.');

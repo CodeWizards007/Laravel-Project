@@ -61,7 +61,8 @@ class CommentaireController extends Controller
      */
     public function edit($id)
     {
-        //
+        $commentaire=Commentaire::find($id);
+        return view('commentaires.edit')->with('commentaire',$commentaire);
     }
 
     /**
@@ -73,7 +74,10 @@ class CommentaireController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comment = Commentaire::find($id);
+        $input=$request->all();
+        $comment->update($input);
+        return redirect('forum')->with('flash_message', 'Le Commentaire à été mis-à-jours !');
     }
 
     /**
@@ -84,6 +88,7 @@ class CommentaireController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Commentaire::destroy($id);
+        return redirect('forum')->with('flash_message', 'Le forum a été supprimé !');
     }
 }

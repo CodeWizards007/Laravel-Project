@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('adresse');
             $table->string('role');
             $table->foreignId('classe_id')->constrained('classes')->onDelete('cascade');
-            $table->foreignId('club_id')->constrained('clubs')->onDelete('cascade');
+            $table->foreignId('club_id')->nullable()->constrained('clubs')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
