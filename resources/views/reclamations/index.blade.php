@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h2>Laravel 9 CRUD (Create, Read, Update and Delete)</h2>
+                    <h2>Page Reclamation</h2>
                 </div>
                 <div class="card-body">
                     <a href="{{ url('/reclamation/create') }}" class="btn btn-success btn-sm" title="Add New Reclamation">
@@ -29,8 +29,12 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->titre }}</td>
                                 <td>{{ $item->contenue }}</td>
-                                <td>{{ $item->status }}</td>
-
+                                @if($item->status == 0)
+                                    <td>Non Traité</td>
+                                @endif
+                                @if($item->status == 1)
+                                <td>Traité</td>
+                                @endif
                                 <td>
                                     <a href="{{ url('/reclamation/' . $item->id) }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                     <a href="{{ url('/reclamation/' . $item->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
