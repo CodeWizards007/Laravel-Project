@@ -8,7 +8,7 @@
         <form action="{{ url('reclamation/' .$reclamations->id) }}" method="post">
             {!! csrf_field() !!}
             @method("PATCH")
-            <input type="hidden" name="id" id="id" value="{{$students->id}}" id="id" />
+            <input type="hidden" name="id" id="id" value="{{$reclamations->id}}" id="id" />
             <label>Titre</label></br>
             <input type="text" name="titre" id="titre" value="{{$reclamations->titre}}" class="form-control"></br>
             <label>Contenue</label></br>

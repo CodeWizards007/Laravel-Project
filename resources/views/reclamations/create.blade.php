@@ -13,8 +13,13 @@
             <input type="text" name="contenue" id="contenue" class="form-control"></br>
             <label>status</label></br>
             <input type="text" name="status" id="status" class="form-control"></br>
-            <label>user id</label></br>
-            <input type="text" name="user_id" id="user_id" class="form-control"></br>
+            <label>user</label></br>
+            <select class="form-select mb-5">
+                @foreach($users as $user)
+                <option value="{{$user->id}}">{{$user->nom}}</option>
+                @endforeach
+
+            </select>
             <input type="submit" value="Save" class="btn btn-success"></br>
         </form>
 

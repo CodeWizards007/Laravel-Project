@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Reclamation;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReclamationController extends Controller
@@ -24,7 +25,9 @@ class ReclamationController extends Controller
      */
     public function create()
     {
-        return view('reclamations.create');
+        $users=User::all();
+        return view('reclamations.create')->with('users',$users);
+
     }
 
     /**
