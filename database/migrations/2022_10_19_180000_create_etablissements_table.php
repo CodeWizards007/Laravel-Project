@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('etablissements', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('adresse');
+            $table->string('address');
             $table->integer('telephone');
             $table->string('email');
             $table->string('image')->nullable();

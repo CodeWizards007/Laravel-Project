@@ -13,4 +13,15 @@ class Etablissement extends Model
     {
         return $this->hasMany(Classe::class);
     }
+
+    protected $fillable = [
+            'image',
+                        'nom',
+                        'telephone',
+                        'email',
+                        'address',
+                        'nombreClasses',
+                        'capaciteEtudiants',
+                        'nombreEnseignants',
+        ];
 }
