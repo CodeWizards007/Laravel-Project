@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\ClubController;
-
+use \App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +18,7 @@ use App\Http\Controllers\ClubController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::resource("/user",UserController::class);
 
 
 Route::resource('/etablissements', \App\Http\Controllers\EtablissementController::class);
