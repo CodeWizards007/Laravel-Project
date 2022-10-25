@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
+            $table->string('image')->nullable();
             $table->string('nomClasse');
             $table->integer('nombreEtudiants');
             $table->foreignId('etablissement_id')->constrained('etablissements')->onDelete('cascade');

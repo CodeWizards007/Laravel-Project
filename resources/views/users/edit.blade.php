@@ -22,19 +22,25 @@
                 <select name="role" id="role" >
                     <option value="etudiant">etudiant</option>
                     <option value="enseignant">enseignant</option>
-                    <option value="parent">parent</option>
-                    <option value="administrateur">administrateur</option>
                 </select>
                 <label>Classe</label>
                 <select name="classe_id" id="classe_id">
                     @foreach ($classes as $classe)
-                        <option value="{{$classe->id}}">{{$classe->nomClasse}}</option>
+                        @if($classe->id == $user->classe_id)
+                            <option value="{{$classe->id}}" selected>{{$classe->nomClasse}}</option>
+                        @else
+                         <option value="{{$classe->id}}">{{$classe->nomClasse}}</option>
+                        @endif
                     @endforeach
                 </select>
                 <label>Club</label>
                 <select name="club_id" id="club_id">
                     @foreach ($clubs as $club)
-                        <option value="{{$club->id}}">{{$club->nomClub}}</option>
+                        @if($club->id == $user->club_id)
+                            <option value="{{$club->id}}" selected>{{$club->nomClub}}</option>
+                        @else
+                          <option value="{{$club->id}}">{{$club->nomClub}}</option>
+                        @endif
                     @endforeach
                 </select>
 

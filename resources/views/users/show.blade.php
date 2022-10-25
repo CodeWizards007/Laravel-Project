@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="card" style="margin:20px;">
-        <div class="card-header">Students Page</div>
+        <div class="card-header">Users Page</div>
         <div class="card-body">
             <div class="card-body">
                 <h5 class="card-title">Name : {{ $user->nom }}</h5>

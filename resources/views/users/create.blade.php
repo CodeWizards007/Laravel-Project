@@ -21,11 +21,9 @@
                 <select name="role" id="role">
                     <option value="etudiant">etudiant</option>
                     <option value="enseignant">enseignant</option>
-                    <option value="parent">parent</option>
-                    <option value="administrateur">administrateur</option>
                 </select>
                 <label>Classe</label>
-                <select name="classe_id" id="classe_id">
+                <select name="classe_id" id="classe_id"  >
                     @foreach ($classes as $classe)
                         <option value="{{$classe->id}}">{{$classe->nomClasse}}</option>
                     @endforeach
