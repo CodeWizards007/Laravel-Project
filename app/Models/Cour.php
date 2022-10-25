@@ -18,7 +18,6 @@ class Cour extends Model
         'nom_annexe',
         'path_annexe',
         'pourClasse',
-        'adresse',
         'user_id',
     ];
     public function user()
