@@ -19,4 +19,11 @@ class Classe extends Model
         return $this->belongsTo(Etablissement::class);
     }
 
+        protected $fillable = [
+            'nomClasse',
+             'nombreEtudiants',
+             'etablissement_id',
+        ];
+        protected $table='classes';
+        protected $primaryKey='id';
 }
