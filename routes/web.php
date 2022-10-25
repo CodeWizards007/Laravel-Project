@@ -33,3 +33,13 @@ Route::resource('/etablissements', \App\Http\Controllers\EtablissementController
 
 Route::resource("/reclamation", ReclamationController::class);
 Route::resource("/club", ClubController::class);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
