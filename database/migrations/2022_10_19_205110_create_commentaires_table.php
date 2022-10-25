@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('commentaires', function (Blueprint $table) {
             $table->id();
             $table->string('contenue');
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('forum_id')->constrained('forums');
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('forum_id')->constrained('forums')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
+
         });
     }
 

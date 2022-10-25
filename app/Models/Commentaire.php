@@ -9,6 +9,15 @@ class Commentaire extends Model
 {
     use HasFactory;
 
+    protected $table = 'commentaires';
+    protected $primaryKey = 'id';
+    protected $fillable = [
+        'contenue',
+        'user_id',
+        'forum_id'
+    ];
+
+
     public function user()
     {
        return $this->belongsTo(User::class);
