@@ -38,6 +38,13 @@ class ReclamationController extends Controller
      */
     public function store(Request $request)
     {
+        //validate form
+        $this->validate($request, [
+
+            'titre'     => 'required|min:5',
+            'contenue'   => 'required|min:8',
+
+        ]);
         $input= $request->all();
         Reclamation::create($input);
         return redirect('reclamation')->with('flash_message', 'Reclamation Addedd!');
@@ -76,6 +83,12 @@ class ReclamationController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //validate form
+        $this->validate($request, [
+            'titre'     => 'required|min:5',
+            'contenue'   => 'required|min:8',
+
+        ]);
         $reclamation = Reclamation::find($id);
         $input = $request->all();
         $reclamation->update($input);
