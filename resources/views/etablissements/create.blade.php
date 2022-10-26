@@ -55,7 +55,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Email</label>
-                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="email">
 
                                 <!-- error message untuk title -->
                                 @error('email')

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ClasseController extends Controller
 {
+
     /**
      * index
      *

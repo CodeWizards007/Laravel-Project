@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Forum;
 use App\Models\User;
+use App\Models\Commentaire;
 use Illuminate\Http\Request;
 
 class ForumController extends Controller
@@ -38,8 +39,22 @@ class ForumController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        Forum::create($input);
+
+        $this->validate($request, [
+            'titre'     => 'required|min:10',
+            'contenue'   => 'required|min:50'
+        ]);
+
+
+
+        Forum::create([
+            'titre'     => $request->titre,
+            'contenue'   => $request->contenue,
+            'user_id'   => $request->user_id,
+        ]);
+
+        /*$input = $request->all();
+        Forum::create($input);*/
         return redirect('forum')->with('flash_message','le nouveau forum à été créé !');
     }
 
