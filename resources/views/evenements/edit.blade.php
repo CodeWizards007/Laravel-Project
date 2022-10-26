@@ -91,11 +91,11 @@
         <input type="hidden" name="id" id="id" value="{{$evenements->id}}" id="id" />
 		<div class="form-group">
 			<label for="inputName">Nom du blog</label>
-			<input type="text" name="titre" id="titre" value="{{$evenements->titre}}" class="form-control" required>
+			<input type="text" name="titre" id="titre" value="{{$evenements->titre}}" class="form-control" required minlength="4" >
 		</div>
 		<div class="form-group">
 			<label for="inputMessage">Description du blog</label>
-			<textarea class="form-control" name="contenu" value="{{$evenements->description}}" id="contenu" rows="5" required></textarea>
+			<textarea class="form-control" name="description"  id="description" rows="5" required minlength="10"></textarea>
 		</div>
                 <div>
                         <label for="inputMessage">Date et heure de l'evenement : </label>

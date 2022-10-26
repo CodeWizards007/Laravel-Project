@@ -189,7 +189,7 @@
                     </div>
                     <div class="col-xs-7">
                         <a href="{{ url('/evenements/create') }}" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Ajouter un nouveau evenement</span></a>
-                        <a href="#" class="btn btn-primary"><i class="material-icons">&#xE24D;</i> <span>Excel</span></a>						
+                        <a href="{{ URL::to('/evenements/pdf') }}" class="btn btn-primary"><i class="material-icons">&#xE24D;</i> <span>PDF</span></a>						
                     </div>
                 </div>
             </div>

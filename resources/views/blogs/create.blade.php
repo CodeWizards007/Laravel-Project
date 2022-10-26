@@ -89,11 +89,11 @@
 		<p class="hint-text" style="text-align: center;">Veuillez ajouter ci dessous les informations relatifs au blog</p>
 		<div class="form-group">
 			<label for="inputName">Nom du blog</label>
-			<input type="text" name="titre" id="titre" class="form-control" required>
+			<input type="text" name="titre" id="titre" class="form-control" required minlength="4">
 		</div>
 		<div class="form-group">
 			<label for="inputMessage">Description du blog</label>
-			<textarea class="form-control" name="contenu" id="contenu" rows="5" required></textarea>
+			<textarea class="form-control" name="contenu" id="contenu" rows="5" required minlength="10" ></textarea>
 		</div>
 		<div>
       <label>Créé Par : </label>

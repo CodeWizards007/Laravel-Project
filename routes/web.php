@@ -27,7 +27,7 @@ Route::get('/', function () {
 Route::resource("/user",UserController::class);
 Route::resource("/cour",\App\Http\Controllers\CoursController::class);
 
-
+Route::get('/evenements/pdf', [EvenementController::class, 'createPDF']);
 
 Route::resource('/classes', \App\Http\Controllers\ClasseController::class);
 Route::resource('/etablissements', \App\Http\Controllers\EtablissementController::class);

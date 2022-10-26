@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Evenement;
 use App\Models\User;
+use PDF;
 
 
 class EvenementController extends Controller
@@ -19,6 +20,16 @@ class EvenementController extends Controller
         $evenements = Evenement::all();
         return view ('evenements.index')->with('evenements', $evenements);
     }
+
+    public function createPDF() {
+        // retreive all records from db
+        $data = Evenement::all();
+        // share data to view
+        view()->share('evenements',$data);
+        $pdf = PDF::loadView('evenements.pdfff', $data->toArray());
+        // download PDF file with download method
+        return $pdf->download('pdf_file.pdf');
+      }
 
     /**
      * Show the form for creating a new resource.

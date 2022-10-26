@@ -88,11 +88,11 @@
   <h1>Ajouter un evenement</h1>
 		<div class="form-group">
 			<label for="inputName">Nom de l'evevenement</label>
-      <input type="text" name="titre" id="titre" class="form-control">
+      <input type="text" name="titre" id="titre" class="form-control" required minlength="4">
     </div>
 		<div class="form-group">
 			<label for="inputMessage">Description de l'evenement</label>
-			<textarea class="form-control" name="description" id="contenu" description="5" required></textarea>
+			<textarea class="form-control" name="description" id="contenu" description="5" required minlength="10"></textarea>
 		</div>
     <div>
     <label for="inputMessage">Date et heure de l'evenement : </label>
