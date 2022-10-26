@@ -214,11 +214,12 @@
                                         <td>{{ $item->description }}</td>
                                         <td>{{ $item->user_id }} </td>
                                         <td>{{ $item->date }}</td>
-                                        <td>@if ($item->status == 0) Non traité
+                                        <td>@if ($item->status == 0) <label style="color:blue">Non traité</label>
                                             @elseif ($item->status == 1)
-                                                Accepté
+                                                <label style="color:green">Accepté</label>
+
                                             @elseif ($item->status == 2)
-                                                Refusé
+                                            <label style="color:red">Refusé</label>
                                                 @endif
                                         <td>{{ $item->created_at}}</td>
                                         <td>
