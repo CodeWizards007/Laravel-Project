@@ -67,6 +67,8 @@
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 
                         </form>
+                                            <a href="{{ url('/classes') }}" class="d-flex justify-content-end"><button class="btn btn-primary">Retour</button></a>
+
                     </div>
                 </div>
             </div>

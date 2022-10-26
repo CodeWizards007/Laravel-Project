@@ -16,7 +16,28 @@ class EtablissementController extends Controller
      *
      * @return void
      */
-    public function index()
+
+     public function index(Request $request)
+         {
+
+         $search = $request->input('search');
+
+             // Search in the title and body columns from the posts table
+             $etablissements = Etablissement::query()
+                 ->where('nom', 'LIKE', "%{$search}%")
+                 ->orWhere('telephone', 'LIKE', "%{$search}%")
+                 ->orWhere('email', 'LIKE', "%{$search}%")
+                 ->orWhere('address', 'LIKE', "%{$search}%")
+                 ->orWhere('nombreClasses', 'LIKE', "%{$search}%")
+                 ->orWhere('capaciteEtudiants', 'LIKE', "%{$search}%")
+                 ->orWhere('nombreEnseignants', 'LIKE', "%{$search}%")
+                 ->get();
+$classes=Classe::All();
+             // Return the search view with the resluts compacted
+             return view('etablissements.index', compact('etablissements'))->with('classes',$classes);
+
+         }
+  /*   public function index()
     {
         //get etablissements
         $etablissements = Etablissement::latest()->paginate(5);
@@ -25,7 +46,7 @@ class EtablissementController extends Controller
 
         //render view with posts
         return view('etablissements.index', compact('etablissements'))->with('classes',$classes);
-    }
+    } */
 
     /**
      * create

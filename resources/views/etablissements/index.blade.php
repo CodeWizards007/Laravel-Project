@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,8 +18,33 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
+                    <a href="{{ url('/') }}" class="d-flex justify-content-end"><button class="btn btn-primary">Retour</button></a>
                         <a href="{{ route('etablissements.create') }}" class="btn btn-md btn-success mb-3">CREE</a>
+
+
+
+
+
+
+
+
+
+<form action="{{ route('etablissements.index') }}" method="GET">
+    <input type="text" name="search" required/>
+    <button type="submit" class="btn btn-dark">Recherche</button>
+    <a href="{{ url('/etablissements') }}">Refresh</a>
+</form>
+
+
+
+
+
+
+
+
+
                         <table class="table table-bordered">
+
                             <thead>
                               <tr>
                                 <th scope="col">Image</th>
@@ -49,10 +76,11 @@
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Delete ?');" action="{{ route('etablissements.destroy', $etablissement->id) }}" method="POST">
                                             <a href="{{ route('etablissements.edit', $etablissement->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                            <a href="{{ url('/classes/'.$etablissement->id) }}" class="btn btn-md btn-success mb-3">Voir Classes</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                                                                   <a href="{{ url('/classes/'.$etablissement->id) }}" class="btn btn-md btn-success mb-3">Voir Classes</a>
+
                                         </form>
                                     </td>
                                 </tr>
@@ -63,9 +91,11 @@
                               @endforelse
                             </tbody>
                           </table>
-                          {{ $etablissements->links() }}
+                          {{-- $etablissements->links() --}}
                     </div>
+
                 </div>
+
             </div>
         </div>
     </div>
@@ -73,6 +103,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script >
+    function myFunction() {
+      var x = document.getElementById("fname");
+      x.value = x.value.toUpperCase();
+
+    }
+
+
 
     <script>
         //message with toastr

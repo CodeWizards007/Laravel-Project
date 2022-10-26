@@ -113,7 +113,9 @@
                             <button type="submit" class="btn btn-md btn-primary">UPDATE</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 
+
                         </form>
+                        <a href="{{ url('/etablissements') }}" class="d-flex justify-content-end"><button class="btn btn-primary">Retourner</button></a>
                     </div>
                 </div>
             </div>

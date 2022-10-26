@@ -15,6 +15,7 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
+                    <a href="{{ url('/') }}" class="d-flex justify-content-end"><button class="btn btn-primary">Retour</button></a>
                         <a href="{{ route('classes.create') }}" class="btn btn-md btn-success mb-3">CREE</a>
                         <table class="table table-bordered">
                             <thead>
