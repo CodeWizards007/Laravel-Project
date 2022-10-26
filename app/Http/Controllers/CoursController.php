@@ -38,7 +38,18 @@ class CoursController extends Controller
      */
     public function store(Request $request)
     {
-        Cour::create($request->all());
+        //upload image
+        $image = $request->file('path_annexe')->storeAs('public/fichiers', $request->nom_annexe . time() . "." . $request->file('path_annexe')->getClientOriginalExtension());
+
+        Cour::create([
+            'titre' => $request->titre,
+            'description' => $request->description,
+            'matiere' => $request->matiere,
+            'nom_annexe' => $request->nom_annexe,
+            'path_annexe' => $image,
+            'pourClasse' => $request->pourClasse,
+            'user_id' => $request->user_id,
+        ]);
         return redirect("cour")->with('success','cour created successfully.');
     }
 

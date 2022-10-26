@@ -3,7 +3,7 @@
     <div class="card" style="margin:20px;">
         <div class="card-header">Create New course</div>
         <div class="card-body">
-            <form action="{{ url('/cour') }}" method="POST">
+            <form action="{{ url('/cour') }}" method="POST" enctype="multipart/form-data">
                 {!! csrf_field() !!}
                 <label>titre</label></br>
                 <input type="text" name="titre" id="title" class="form-control"></br>
@@ -17,6 +17,8 @@
                 <input type="text" name="nom_annexe" id="nom_annexe" class="form-control"></br>
                 <label>pourClasse</label></br>
                 <input type="text" name="pourClasse" id="pourClasse" class="form-control"></br>
+                <label>Fichier</label></br>
+                <input type="file" name="path_annexe" id="path_annexe" class="form-control"></br>
                 <label>User</label>
                 <select name="user_id" id="user_id">
                     @foreach ($users as $u)

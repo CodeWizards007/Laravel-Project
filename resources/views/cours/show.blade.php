@@ -9,8 +9,12 @@
                 <p class="card-text">description : {{ $cour->description }}</p>
                 <p class="card-text">matiere : {{ $cour->matiere }}</p>
                 <p class="card-text">nom_annexe : {{ $cour->nom_annexe }}</p>
+                <p class="card-text">path_annexe: {{$cour->path_annexe}}</p>
                 <p class="card-text">Nom Classe : {{ $cour->pourClasse }}</p>
-                <p class="card-text">User : {{ $course_user->nom }}</p>
+                <p class="card-text">User nom : {{ $course_user->nom }}</p>
+                <p class="card-text">User prenom : {{ $course_user->prenom }}</p>
+                <p class="card-text">path_annexe:  {{$cour->path_annexe}}</p>
+
 
             </div>
             </hr>
