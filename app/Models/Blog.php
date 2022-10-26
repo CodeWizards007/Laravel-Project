@@ -20,7 +20,7 @@ class Blog extends Model
     protected $fillable = [
         'titre',
         'contenu',
-        'creePar',
+        'user_id',
     ];
 
 }
