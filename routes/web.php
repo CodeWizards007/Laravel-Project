@@ -5,6 +5,7 @@ use App\Http\Controllers\ForumController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\ClubController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EvenementController;
 
@@ -43,6 +44,9 @@ Route::resource("/club", ClubController::class);
 
 Route::resource("/forum",ForumController ::class);
 Route::resource("/commentaire",CommentaireController ::class);
+
+
+Route::get('/',[HomeController::class, 'redirect']);
 
 Route::middleware([
     'auth:sanctum',
