@@ -21,7 +21,7 @@ class Evenement extends Model
         'titre',
         'description',
         'date',
-        'creePar',
+        'user_id',
         'status',
     ];
 }

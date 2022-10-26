@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Evenement;
+use App\Models\User;
+
 
 class EvenementController extends Controller
 {
@@ -25,7 +27,8 @@ class EvenementController extends Controller
      */
     public function create()
     {
-        return view('evenements.create');
+        $users = User::all();
+        return view('evenements.create')->with('users', $users);
     }
 
     /**
@@ -50,6 +53,7 @@ class EvenementController extends Controller
     public function show($id)
     {
         $evenement = Evenement::find($id);
+        $user = User::find($evenement->user_id);    
         return view('evenements.show')->with('evenements', $evenement);
     }
 
